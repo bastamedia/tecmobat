@@ -1,0 +1,11 @@
+/*
+Theme Name: Tecmobat
+Description: Theme enfant de BastaMultimedia pour Tecmobat
+Author: Louis Lammens
+Author URI: https://bastamultimedia.com
+Template: BastaMultimedia
+Version: 0.1.0
+*/
+
+@import "css/reset.css";
+@import "css/endpoint_child.css";

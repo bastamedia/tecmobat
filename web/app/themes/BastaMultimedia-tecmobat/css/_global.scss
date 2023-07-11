@@ -1,0 +1,1090 @@
+@import "../../BastaMultimedia/src/css/_responsive.scss";
+@import "env";
+
+body,
+html {
+  scroll-behavior: smooth;
+}
+
+.title-effect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    color: white;
+    transition: linear 0.3s;
+    display: block;
+    @include font-title(45px);
+    padding: 0 5px;
+  }
+}
+.title-effect.effect {
+  cursor: pointer;
+  span:nth-child(2n) {
+    transform: translateY(-25%);
+  }
+  span:nth-child(2n + 1) {
+    transform: translateY(25%);
+  }
+}
+
+.main-title {
+  span.has-x-large-font-size {
+    display: flex;
+    gap: 0.2px;
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+    color: white;
+    i {
+      transition: ease-in-out 0.2s;
+      display: block;
+      font-style: normal;
+      &._space {
+        margin: 0 5px;
+      }
+      &:hover {
+        transform: translateY(-10px);
+      }
+    }
+  }
+}
+
+/* règles générales */
+h1 {
+  @include font-title(50px);
+  color: $black;
+}
+h2 {
+  @include font-title(25px);
+  color: $black;
+  margin-bottom: 25px;
+}
+h3 {
+  @include font-title(20px);
+  color: $black;
+}
+h4 {
+  @include font-title(16px);
+  color: $black;
+}
+.has-x-large-font-size {
+  font-size: 35px !important;
+}
+p,
+span,
+li,
+ul {
+  @include font-body(16px);
+  color: $black;
+  text-align: justify;
+}
+p a {
+  text-decoration: underline;
+}
+a {
+  @include font-body(16px);
+  text-shadow: none !important;
+}
+span.numeric,
+h3.numeric {
+  @include font-numeric(30px);
+  color: $black;
+  margin: 15px 0;
+}
+blockquote {
+  font-style: italic;
+  p {
+    &:before {
+      content: "“";
+      font-style: normal;
+      height: 50px;
+      font-size: 50px;
+      display: block;
+    }
+    &:after {
+      content: "“";
+      font-style: normal;
+      height: 50px;
+      font-size: 50px;
+      display: block;
+      text-align: end;
+    }
+  }
+  cite {
+    margin-top: 25px;
+    display: block;
+    @include font-body(16px);
+  }
+}
+.last__banner {
+  margin-bottom: 80px;
+}
+
+.wp-block-columns {
+  margin-bottom: 0;
+}
+.wp-block-cover__inner-container {
+  @include media-min(1550px) {
+    width: 1400px !important;
+    margin: 0 auto !important;
+  }
+}
+/* loader */
+body.page {
+  .content {
+    visibility: hidden;
+    height: 0;
+  }
+  footer {
+    height: 0;
+    visibility: hidden;
+  }
+  overflow-y: hidden;
+  height: 100vh;
+  .loader {
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /*.loader-element {
+      border: 16px solid #EFEFEF;
+      border-top: 16px solid $red;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 1.1s linear infinite;
+    }*/
+  }
+  &:not(.load) {
+    overflow-x: hidden;
+  }
+  &.load {
+    overflow-y: scroll;
+    height: auto;
+  }
+  &.load .loader {
+    display: none;
+  }
+  &.load .content {
+    visibility: visible;
+    height: auto;
+  }
+  &.load footer {
+    visibility: visible;
+    height: auto;
+  }
+}
+
+/* 404 */
+h2.error-title {
+  padding-top: 150px;
+}
+div.error {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 25px !important;
+  margin-bottom: 80px !important;
+  background: #efefef;
+  border: solid 1px;
+  display: flex;
+  gap: 25px;
+
+  img {
+    width: 40%;
+    padding: 10px 0 10px 10px;
+  }
+
+  div {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px 10px 10px 0;
+
+    a {
+      padding: 5px 10px;
+      background: $red;
+      color: #ffffff;
+      border: solid 1px $red;
+      cursor: pointer;
+      &:hover {
+        color: $red;
+        background: #ffffff;
+      }
+    }
+  }
+}
+
+/* accueil */
+.wp-block-group.bs-has-background {
+  background: url("/wp-content/uploads/2023/03/jimmy-nilsson-masth-PyJz936eQs4-unsplash11.jpg")
+    no-repeat top;
+  background-size: cover;
+  @include media-max(782px) {
+    background-attachment: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  @include media-min(1550px) {
+    width: 100% !important;
+    .wp-block-columns {
+      width: 1400px !important;
+      margin: 0 auto !important;
+    }
+  }
+}
+.wp-block-group.has-overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+/* slide fade effect */
+.slide-fade-effect {
+  transition: ease-in-out 0.5s;
+  opacity: 0;
+  &.left {
+    transform: translateX(-300px);
+  }
+  &.right {
+    transform: translateX(300px);
+  }
+  &.animate {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* up fade effect */
+.up-fade-effect {
+  &:nth-of-type(1) {
+    transition: ease-in-out 0.5s;
+  }
+  &:nth-of-type(2) {
+    transition: ease-in-out 0.6s;
+  }
+  &:nth-of-type(3) {
+    transition: ease-in-out 0.7s;
+  }
+  &:nth-of-type(4) {
+    transition: ease-in-out 0.8s;
+  }
+
+  opacity: 0;
+  transform: translateY(100px);
+
+  &.animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  @include media-max(782px) {
+    transition: ease-in-out 0.5s !important;
+  }
+}
+
+/* navigation expertises */
+.sticky-nav {
+  position: sticky;
+}
+.nav-e {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  span {
+    color: white;
+    padding: 20px 0;
+    cursor: pointer;
+  }
+}
+
+/* player */
+.bs-player {
+  display: flex;
+  justify-content: center;
+}
+
+/* expertise gallery */
+.bs-expertises-gallery {
+  gap: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  height: 600px;
+  @include media-max(550px) {
+    position: initial;
+    height: auto;
+  }
+
+  figure.wp-block-image {
+    overflow: hidden;
+    transition: width ease-in-out 0.5s;
+    position: absolute !important;
+    width: 50% !important;
+    height: 300px;
+    z-index: 1;
+    @include media-max(550px) {
+      height: 25vh;
+      width: 100% !important;
+      position: relative !important;
+    }
+    &:before {
+      content: "";
+      background: rgba(0, 0, 0, 0.3);
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+    &:after {
+      color: white;
+      text-align: center;
+      width: 100%;
+      position: absolute;
+      @include font-title(20px);
+      z-index: 11;
+    }
+    &:nth-child(1):after {
+      content: "Sablage";
+    }
+    &:nth-child(2):after {
+      content: "Décapage";
+    }
+    &:nth-child(3):after {
+      content: "Aérogommage";
+    }
+    &:nth-child(4):after {
+      content: "Hydrogommage";
+    }
+
+    &:nth-child(2) {
+      left: 50%;
+      @include media-max(550px) {
+        left: 0;
+      }
+    }
+    &:nth-child(3) {
+      top: 50%;
+      @include media-max(550px) {
+        top: 0;
+      }
+    }
+    &:nth-child(4) {
+      top: 50%;
+      left: 50%;
+      @include media-max(550px) {
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &.active {
+      height: 100%;
+      width: 100% !important;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      &:after {
+        content: "X";
+        height: 90%;
+        width: 95%;
+        text-align: right;
+      }
+    }
+    &.is-click:not(.active) {
+      visibility: hidden;
+    }
+  }
+}
+
+.wp-block-columns.change-order-on-mobile {
+  @include media-max(782px) {
+    gap: 80px;
+
+    .wp-block-column:nth-child(2) {
+      order: -1;
+    }
+  }
+}
+
+.expertises-content-outer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  @include media-max(782px) {
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .expertises-content {
+    @include media-min(1550px) {
+      width: 100% !important;
+      margin: 0 auto;
+    }
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: ease-in-out 0.5s;
+    @include media-max(782px) {
+      position: initial;
+      opacity: 1;
+      transform: none;
+    }
+    &.on {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    &.is-click:not(.on) {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    &:first-child {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+/*swiper*/
+
+.swiper {
+  width: 60%;
+  max-width: 100% !important;
+  overflow: visible !important;
+  @include media-max(782px) {
+    width: 80%;
+  }
+  @include media-max(480px) {
+    width: 100%;
+  }
+  .swiper-slide {
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+    width: 50% !important;
+    height: auto !important;
+    @include media-max(782px) {
+      width: 60% !important;
+    }
+
+    .inner-swiper-slide {
+      padding: 20px;
+      height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      h2,
+      span {
+        color: white;
+        z-index: 2;
+      }
+      i.opacity-controller {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+      }
+    }
+  }
+
+  .swiper-scrollbar {
+    bottom: -20px !important;
+    width: 20% !important;
+    .swiper-pagination-progressbar-fill {
+      background: $red !important;
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $red !important;
+    visibility: hidden;
+    @include media-max(900px) {
+      visibility: visible;
+    }
+  }
+  &:hover {
+    .swiper-button-prev,
+    .swiper-button-next {
+      visibility: visible;
+    }
+  }
+}
+
+/* formulaire de contact */
+form.wpforms-form {
+  input {
+    border: 0 !important;
+    border-bottom: solid 1px $black !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    font-family: "AktivGrotesk", sans-serif !important;
+  }
+  label {
+    @include font-body(16px);
+  }
+  textarea {
+    border: solid 1px $black !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    font-family: "AktivGrotesk", sans-serif !important;
+  }
+  button {
+    background-color: $black !important;
+    color: white !important;
+    @include font-body(16px);
+    font-size: 16px !important;
+    font-weight: bold !important;
+  }
+}
+
+.infos-contact {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  &:nth-of-type(1) {
+    &:before {
+      content: "";
+      display: block;
+      margin-right: 10px;
+      font-size: 20px;
+      background: url("/wp-content/uploads/2023/03/Vector.svg") no-repeat center;
+      background-size: cover;
+      height: 30px;
+      width: 30px;
+    }
+  }
+  &:nth-of-type(2) {
+    &:before {
+      content: "";
+      display: block;
+      margin-right: 10px;
+      font-size: 20px;
+      background: url("/wp-content/uploads/2023/03/tel.svg") no-repeat center;
+      background-size: cover;
+      height: 30px;
+      width: 30px;
+    }
+  }
+  &:nth-of-type(3) {
+    &:before {
+      content: "";
+      display: block;
+      margin-right: 10px;
+      font-size: 20px;
+      background: url("/wp-content/uploads/2023/03/mail.svg") no-repeat center;
+      background-size: cover;
+      height: 30px;
+      width: 30px;
+    }
+  }
+  &:nth-of-type(4) {
+    &:before {
+      content: "";
+      display: block;
+      margin-right: 10px;
+      font-size: 20px;
+      background: url("/wp-content/uploads/2023/03/map.svg") no-repeat center;
+      background-size: cover;
+      height: 30px;
+      width: 32px;
+    }
+  }
+  &:nth-of-type(5) {
+    &:before {
+      content: "";
+      display: block;
+      margin-right: 10px;
+      font-size: 20px;
+      background: url("/wp-content/uploads/2023/03/linkedinhomeb.png") no-repeat
+        center;
+      background-size: cover;
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+/* blog */
+.bs-home-group {
+  padding-top: 200px;
+}
+
+body.blog {
+  span.home-opacity-controller {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0);
+    z-index: -1;
+  }
+  background: url("/wp-content/uploads/2023/03/fondactu.jpg") no-repeat center;
+  background-attachment: fixed;
+  @include media-max(782px) {
+    background-attachment: unset;
+  }
+  background-size: cover;
+  .archives-container.wp-block-group {
+    margin-top: 80px;
+  }
+  .wp-block-group {
+    width: 90%;
+    margin: 0 auto;
+    &.bs-home-follow-link {
+      display: flex;
+      align-items: center;
+      margin-bottom: 80px;
+      h2 {
+        margin-bottom: 5px;
+      }
+      img {
+        width: 60px;
+        height: 60px;
+        margin-right: 25px;
+      }
+    }
+  }
+}
+
+.bs-tcb-outer-news {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+  @include media-max(782px) {
+    gap: 10%;
+  }
+}
+.bs-tcb-inner-news {
+  width: 30%;
+  margin-bottom: 5%;
+  @include media-max(782px) {
+    width: 45%;
+    margin-bottom: 10%;
+  }
+  @include media-max(482px) {
+    width: 100%;
+  }
+  span {
+    @include media-max(782px) {
+      height: 220px;
+    }
+    height: 300px;
+    display: block;
+  }
+  h3 {
+    background: white;
+    padding: 20px;
+  }
+}
+
+/*références*/
+
+.wp-block-group.cht {
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+  transform: translateY(50px);
+  height: 0;
+  overflow: hidden;
+  &.visible {
+    opacity: 1;
+    height: auto;
+    transform: translateY(0);
+  }
+}
+
+/* articles */
+
+.wp-block-group.articles-group {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  padding-top: 200px;
+
+  .bs-single-columns {
+    margin-top: 80px;
+    .bs-single-column {
+      aside.bs-aside {
+        background: #efefef;
+        padding: 20px;
+        margin-right: 25px;
+        @include media-max(782px) {
+          margin-right: 0;
+        }
+        a {
+          width: 100%;
+          padding: 0;
+          border-left: none;
+          &:not(:last-child) {
+            margin-bottom: 25px;
+          }
+          &:hover {
+            background: transparent;
+            color: $red;
+          }
+          &.is-selected {
+            background: transparent;
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.scrollerArticles {
+  position: sticky;
+  z-index: 10;
+  top: 50vh;
+  display: flex;
+  justify-content: end;
+  transform: translateX(6%);
+  span {
+    font-size: 30px;
+    color: white;
+    background: $black;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  @include media-max(782px) {
+    top: 80vh;
+    transform: translateX(0);
+  }
+}
+
+//titre
+
+.banner-title-secondary-page .wp-block-cover__inner-container {
+  animation: hAnimation ease 0.8s;
+  animation-delay: 1.7s;
+}
+
+h1.main-title {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  animation: hAnimation ease 0.8s;
+  animation-delay: 8.9s;
+  display: flex;
+  flex-direction: column;
+
+  &.is-visible {
+    opacity: 1;
+  }
+
+  span {
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+    line-height: 1.2;
+    float: left;
+    color: white;
+    text-align: left;
+    &:last-child {
+      line-height: 1;
+      font-family: "AktivGrotesk", sans-serif;
+      font-weight: 300;
+      margin-top: 25px;
+    }
+  }
+}
+
+.title-container {
+  .wp-block-cover__inner-container {
+    width: 100% !important;
+  }
+}
+.container {
+  position: relative;
+  width: 100%;
+}
+
+h2.title {
+  span {
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+    text-align: left;
+    line-height: 1.2;
+    width: 100%;
+    float: left;
+    color: white;
+    transform: translateY(-50px);
+    opacity: 0;
+    animation-name: titleAnimation;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+  }
+}
+h2.title.one {
+  bottom: 0;
+  position: absolute;
+}
+h2.title.one span {
+  animation-delay: 2.3s;
+  -webkit-animation-fill-mode: forwards;
+
+  &:first-child {
+    animation-delay: 2.4s;
+  }
+
+  &:last-child {
+    animation-delay: 2.2s;
+  }
+}
+
+h2.title.two {
+  bottom: 0;
+  position: absolute;
+
+  span {
+    animation-delay: 5.8s;
+    -webkit-animation-fill-mode: forwards;
+
+    &:first-child {
+      animation-delay: 5.9s;
+    }
+
+    &:last-child {
+      animation-delay: 5.7s;
+    }
+  }
+}
+
+//sablier
+
+.hourglass,
+.hourglass:before,
+.hourglass:after {
+  animation-duration: 1.7s;
+  animation-iteration-count: infinite;
+}
+.hourglass {
+  scale: 0.7;
+  --polygonH: polygon(
+    0% 0%,
+    100% 0%,
+    100% 5.55%,
+    95% 5.55%,
+    95% 28%,
+    60% 46%,
+    60% 54%,
+    95% 72%,
+    95% 94.45%,
+    100% 94.45%,
+    100% 100%,
+    0% 100%,
+    0% 94.45%,
+    5% 94.45%,
+    5% 72%,
+    40% 54%,
+    40% 46%,
+    5% 28%,
+    5% 5.55%,
+    0% 5.55%
+  );
+  animation-name: flip;
+  animation-timing-function: ease-in-out;
+  background-image: linear-gradient(
+    #0056a4 0.5em,
+    #737a8c55 0.5em 8.5em,
+    #0056a4 8.5em
+  );
+  clip-path: var(--polygonH);
+  -webkit-clip-path: var(--polygonH);
+  overflow: hidden;
+  position: relative;
+  width: 5em;
+  height: 9em;
+  z-index: 0;
+}
+.hourglass:before,
+.hourglass:after {
+  animation-timing-function: linear;
+  content: "";
+  display: block;
+  position: absolute;
+}
+.hourglass:before {
+  --polygonB1: polygon(
+    0% 0%,
+    100% 0%,
+    100% 24%,
+    50% 47%,
+    50% 47%,
+    50% 47%,
+    50% 47%,
+    50% 47%,
+    50% 47%,
+    50% 47%,
+    50% 47%,
+    0% 24%
+  );
+  --polygonB2: polygon(
+    0% 4%,
+    100% 4%,
+    100% 24%,
+    55% 45%,
+    55% 100%,
+    55% 100%,
+    55% 100%,
+    45% 100%,
+    45% 100%,
+    45% 100%,
+    45% 45%,
+    0% 24%
+  );
+  --polygonB3: polygon(
+    0% 24%,
+    100% 24%,
+    100% 24%,
+    55% 45%,
+    55% 80%,
+    100% 100%,
+    100% 100%,
+    0% 100%,
+    0% 100%,
+    45% 80%,
+    45% 45%,
+    0% 24%
+  );
+  --polygonB4: polygon(
+    45% 45%,
+    55% 45%,
+    55% 45%,
+    55% 45%,
+    55% 58%,
+    100% 76%,
+    100% 100%,
+    0% 100%,
+    0% 76%,
+    45% 58%,
+    45% 45%,
+    45% 45%
+  );
+  --polygonB5: polygon(
+    50% 53%,
+    50% 53%,
+    50% 53%,
+    50% 53%,
+    50% 53%,
+    100% 76%,
+    100% 100%,
+    0% 100%,
+    0% 76%,
+    50% 53%,
+    50% 53%,
+    50% 53%
+  );
+  animation-name: fill;
+  background-color: #e73337;
+  background-size: 100% 3.6em;
+  clip-path: var(--polygonB1);
+  -webkit-clip-path: var(--polygonB1);
+  top: 0.5em;
+  left: 0.5em;
+  width: 4em;
+  height: 8em;
+  z-index: 1;
+}
+.hourglass:after {
+  animation-name: glare;
+  background: linear-gradient(
+        90deg,
+        #0000 0.5em,
+        #0003 0.5em 1.5em,
+        #0000 1.5em 3.5em,
+        #fff3 3.5em 4.5em,
+        #fff0 4.5em 6.5em,
+        #0003 6.5em 7.5em,
+        #0000 7.5em
+      )
+      0 0 / 100% 0.5em,
+    linear-gradient(
+        90deg,
+        #0000 0.75em,
+        #0003 0.75em 1.25em,
+        #0000 1.25em 3.75em,
+        #fff3 3.75em 4.25em,
+        #fff0 4.25em 6.75em,
+        #0003 6.75em 7.25em,
+        #0000 7.25em
+      )
+      0 0.5em / 100% 8em,
+    linear-gradient(
+        90deg,
+        #0000 0.5em,
+        #0003 0.5em 1.5em,
+        #0000 1.5em 3.5em,
+        #fff3 3.5em 4.5em,
+        #fff0 4.5em 6.5em,
+        #0003 6.5em 7.5em,
+        #0000 7.5em
+      )
+      0 100% / 100% 0.5em;
+  background-repeat: repeat-x;
+  top: 0;
+  left: -3em;
+  width: 200%;
+  height: 100%;
+  z-index: 2;
+}
+/* Animations */
+@keyframes fill {
+  from {
+    clip-path: var(--polygonB1);
+    -webkit-clip-path: var(--polygonB1);
+  }
+  10% {
+    clip-path: var(--polygonB2);
+    -webkit-clip-path: var(--polygonB2);
+  }
+  45% {
+    clip-path: var(--polygonB3);
+    -webkit-clip-path: var(--polygonB3);
+  }
+  80% {
+    clip-path: var(--polygonB4);
+    -webkit-clip-path: var(--polygonB4);
+  }
+  85%,
+  to {
+    clip-path: var(--polygonB5);
+    -webkit-clip-path: var(--polygonB5);
+  }
+}
+@keyframes glare {
+  from,
+  90% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(3em);
+  }
+}
+@keyframes flip {
+  from,
+  90% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+.modal {
+  position: fixed;
+}

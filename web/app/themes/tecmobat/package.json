@@ -1,0 +1,17 @@
+{
+  "name": "tecmobat",
+  "version": "0.2.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./css/base.css -o ./dist/styles.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "daisyui": "^3.2.1",
+    "postcss": "^8.4.25",
+    "tailwindcss": "^3.3.2"
+  }
+}

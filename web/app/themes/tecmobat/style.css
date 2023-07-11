@@ -1,0 +1,13 @@
+/*
+Theme Name: Tecmobat V2
+Description: Theme pour Tecmobat
+Author: Paul-Mathias Logue
+Author URI: https://bastamultimedia.com
+Version: 0.2.1
+*/
+
+@import "dist/styles.css";
+
+#hero {
+  @apply hero;
+}

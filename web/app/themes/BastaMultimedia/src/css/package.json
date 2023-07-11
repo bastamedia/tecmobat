@@ -1,0 +1,11 @@
+{
+  "name": "css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./main.scss:./endpoint.css"
+  },
+  "author": "Louis Lammens",
+  "license": "ISC"
+}

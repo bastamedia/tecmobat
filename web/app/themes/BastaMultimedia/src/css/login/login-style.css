@@ -1,0 +1,44 @@
+body.login {
+    background-color: #ffe6ae;
+}
+
+.login h1 a {
+    background-image: url('https://bastamultimedia.com/wp-content/uploads/2022/07/PRISE-JAUNE.svg');
+}
+
+body.login div#login {width: 400px}
+@media screen and (max-width: 450px) {
+    body.login div#login {width: 90%}
+}
+.login #login_error, .login .message, .login .success {
+    border-left: 4px solid #064959;
+    background-color: rgba(255,255,255, 0.6);
+}
+body.login div#login form#loginform {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+body.login div#login form#loginform p {}
+body.login div#login form#loginform p label {}
+body.login div#login form#loginform input {
+    border-radius: 0;
+}
+.login form .input, .login form input[type="checkbox"], .login input[type="text"] {
+    background: rgba(255,255,255, 0.6);
+}
+#language-switcher label, #language-switcher select {
+    background: rgba(255,255,255, 0.6);
+}
+body.login div#login form#loginform input#user_login {}
+body.login div#login form#loginform input#user_pass {}
+body.login div#login form#loginform p.forgetmenot {}
+body.login div#login form#loginform p.forgetmenot input#rememberme {}
+body.login div#login form#loginform p.submit {}
+body.login div#login form#loginform p.submit input#wp-submit {
+    background: #0a4b78;
+}
+body.login div#login p#nav {}
+body.login div#login p#nav a {}
+body.login div#login p#backtoblog {}
+body.login div#login p#backtoblog a {}

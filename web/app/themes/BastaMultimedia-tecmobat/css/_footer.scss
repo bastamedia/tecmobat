@@ -1,0 +1,80 @@
+@import "../../BastaMultimedia/src/css/_responsive.scss";
+@import "env";
+
+footer{
+  div.top{
+    display: grid;
+    grid-template-columns: 15% 55% 30%;
+    width: 90%;
+    @include media-min(1550px){
+      width: 1400px;
+    }
+    @include media-max(782px){
+      grid-template-columns: 1fr;
+      gap: 25px;
+      justify-items: center;
+    }
+    margin: 0 auto;
+    align-items: center;
+
+    .custom-logo-link{
+      display: block;
+      width: 100px;
+    }
+    .btnC {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      a{
+        padding: 10px 20px;
+        border: solid 1px $red;
+        background: $red;
+        color: white;
+        font-weight: bold;
+        &:hover{
+          background: $bleu;
+          border: solid 1px $bleu;
+        }
+      }
+    }
+  }
+
+  div.bottom{
+    margin-top: 50px;
+    padding: 25px 0;
+    background: $red;
+    width: 100%;
+    .menu-footer-container{
+      width: 60%;
+      margin: 0 auto;
+      @include media-max(782px){
+        width: fit-content;
+      }
+    }
+    #menu-footer{
+      display: flex;
+      justify-content: space-between;
+      @include media-max(782px){
+        flex-direction: column;
+        gap: 25px;
+      }
+      li a{
+        color: #fff;
+      }
+    }
+  }
+
+  #topScroller {
+    width: 100%;
+    display: none;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 25px;
+    color: white;
+    cursor: pointer;
+    @include media-max(900px){
+      display: block;
+    }
+  }
+}
